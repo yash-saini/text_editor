@@ -64,10 +64,10 @@ const handleOnChange = (event) =>{
 
   return (
 <>
-<div className='container'>
+<div className='container' style={{color : props.dorl ==='light' ? 'black':'white'}}>
     <h1>{props.heading}</h1>
     <div className="mb-3">
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
+        <textarea className="form-control" value={text}  onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8" style={{color : props.dorl ==='light' ? 'black':'white',backgroundColor : props.dorl ==='light' ? 'white':'grey'}}></textarea>
     </div>
     <button className='btn btn-primary mx-2' onClick={handleOnClickU}>UpperCase</button>
     <button className='btn btn-primary mx-2 ' onClick={handleOnClickL}>LowerCase</button>  
@@ -79,19 +79,19 @@ const handleOnChange = (event) =>{
       
 </div>
 
-<div className='container my-3'> 
+<div className='container my-3' style={{ color : props.dorl ==='light' ? 'black':'white',backgroundColor : props.dorl ==='light' ? 'white':'grey'}}> 
         <h2>Statistics</h2> 
         {text.trim().length === 0 ? <p>Words: 0</p> : <p>Words: {text.split(" ").length}</p>}
         <p>Length: {text.length}</p>
      
 </div>
-<div className='container my-3'> 
+<div className='container my-3' style={{ color : props.dorl ==='light' ? 'black':'white', backgroundColor : props.dorl ==='light' ? 'white':'grey'}}> 
         <h2>Other Statistics</h2> 
         <p>Vowels: {vowels}</p>
         <p>Consonants: {consonants}</p>
 </div>
 
-<div className='container2 my-3'> 
+<div className='container2 my-3' style={{ color : props.dorl ==='light' ? 'black':'white',backgroundColor : props.dorl ==='light' ? 'white':'grey'}}> 
         <h2>Preview</h2>
         <p>{text}</p>
 </div>

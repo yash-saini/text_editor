@@ -4,30 +4,10 @@ import { useState } from 'react'
 
 
 export default function Navbar(props) {
-    const[buttonlabel,changelabel] = useState("Dark Mode On")
 
-    const[dorl,navbarchange]=useState('light')
-    
-    const darkmode = () =>{
-        if (dorl==='light')
-        {
-            navbarchange('dark')
-            changelabel("Dark Mode on")
-        }
-        else
-        {
-            navbarchange('light')
-            changelabel("Light Mode on")
-        }
-        
-    }
-    
-
-
- 
   return (
     
-    <nav className={`navbar navbar-expand-lg navbar-${dorl} bg-${dorl}`}>
+    <nav className={`navbar navbar-expand-lg navbar-${props.dorl} bg-${props.dorl}`}>
   <div className="container-fluid" >
     <a className="navbar-brand mb-0.5" href="/">{props.title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +30,8 @@ export default function Navbar(props) {
       </form>
        */}
        <div className="form-check form-switch" >
-            <input className="form-check-input" type="checkbox" onClick={darkmode} role="switch" id="flexSwitchCheckDefault"/>
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color : dorl ==='light' ? 'black':'white'}}>{buttonlabel}</label>
+            <input className="form-check-input" type="checkbox" onClick={props.darkmode} role="switch" id="flexSwitchCheckDefault"/>
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color : props.dorl ==='light' ? 'black':'white'}}>{props.buttonlabel}</label>
     </div>
 
     </div>
