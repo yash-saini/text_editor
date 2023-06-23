@@ -22,6 +22,7 @@ const handleOnClickC = () =>{
    
     setText('')
     setVowel({vowels:0,consonants:0})
+    window.speechSynthesis.cancel();
 }
 
 const handleOnClickV = () =>{
@@ -46,11 +47,21 @@ const handleOnClickV = () =>{
 
 }
 
+const speaking = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  }
+
+const stopspeaking = () => {
+    window.speechSynthesis.cancel();
+}
 
 const handleOnChange = (event) =>{
     //console.log("OnChange")
     setText(event.target.value)
 }
+
   return (
 <>
 <div className='container'>
@@ -61,14 +72,16 @@ const handleOnChange = (event) =>{
     <button className='btn btn-primary mx-2' onClick={handleOnClickU}>UpperCase</button>
     <button className='btn btn-primary mx-2 ' onClick={handleOnClickL}>LowerCase</button>  
     <button className='btn btn-primary mx-2 ' onClick={handleOnClickC}>Clear</button> 
-    <button className='btn btn-primary mx-2 ' onClick={handleOnClickV}>Other Stats</button>  
-      
+    <button className='btn btn-primary mx-2 ' onClick={handleOnClickV}>Other Stats</button> 
+    <button className='btn btn-primary mx-2 ' onClick={speaking}>Read Aloud</button>  
+    <button className='btn btn-primary mx-2 ' onClick={stopspeaking}>Stop Read Aloud</button>  
+
       
 </div>
 
 <div className='container my-3'> 
         <h2>Statistics</h2> 
-        {text.trim().length == 0 ? <p>Words: 0</p> : <p>Words: {text.split(" ").length}</p>}
+        {text.trim().length === 0 ? <p>Words: 0</p> : <p>Words: {text.split(" ").length}</p>}
         <p>Length: {text.length}</p>
      
 </div>
