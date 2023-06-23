@@ -11,11 +11,14 @@ const handleOnClickU = () =>{
 
     let new_t= text.toUpperCase()
     setText(new_t)
+    props.changingAlertStates("Upper Case Conversion","success")
 }
 const handleOnClickL = () =>{
 
     let new_t= text.toLowerCase()
     setText(new_t)
+    props.changingAlertStates("Lower Case Conversion","success")
+
 }
 const handleOnClickC = () =>{
 
@@ -23,6 +26,8 @@ const handleOnClickC = () =>{
     setText('')
     setVowel({vowels:0,consonants:0})
     window.speechSynthesis.cancel();
+    props.changingAlertStates("Clear","success")
+
 }
 
 const handleOnClickV = () =>{
@@ -43,6 +48,8 @@ const handleOnClickV = () =>{
 
     }
     setVowel({vowels:count,consonants:conso_count})
+    props.changingAlertStates("Other Statistics","success")
+
     //console.log(vowels)
 
 }
@@ -51,10 +58,13 @@ const speaking = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
+    props.changingAlertStates("Read Aloud","success")
+
   }
 
 const stopspeaking = () => {
     window.speechSynthesis.cancel();
+    props.changingAlertStates("Stop Read Aloud","success")
 }
 
 const handleOnChange = (event) =>{
