@@ -38,10 +38,10 @@ export default function About() {
     
  
   return (
-    <div className='container' style={myStyle}>
+    <div className='container my-5' style={myStyle}>
       <div className="accordion" id="accordionExample" >
   <div className="accordion-item" >
-    <h2 className="accordion-header">
+    <h2 className="accordion-header my-0.2">
       <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <b>About the App</b>
       </button>
@@ -56,11 +56,11 @@ export default function About() {
 
   <div className="accordion-item" >
     <h2 className="accordion-header">
-      <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
       <b>About the Creator</b>
       </button>
     </h2>
-    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+    <div id="collapseTwo" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
       <div className="accordion-body" style={myStyle}>
         <strong>Developer Yash Saini: </strong> I have pursued Masters in Computer Science & Engineering with specialization in Artificial Intelligence from State University of New York at Buffalo. Previously, I have worked as a consultant with Deloitte Consulting India Private Limited (Deloitte US-India). As an EPM developer in the Finance Technology & Innovation business line, I gained experience with Data Relationship Management (DRM), Enterprise Planning & Budgeting Cloud Service (EPBCS), Data Management (DM/FDMEE), Application Lifecycle Management (ALM), Python, Groovy, Windows Batch Scripting, and EPM automation scripting.
 

@@ -75,7 +75,7 @@ const handleOnChange = (event) =>{
   return (
 <>
 <div className='container' style={{color : props.dorl ==='light' ? 'black':'white'}}>
-    <h1>{props.heading}</h1>
+    <h1 className='mb-7'>{props.heading}</h1>
     <div className="mb-3">
         <textarea className="form-control" value={text}  onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8" style={{color : props.dorl ==='light' ? 'black':'white',backgroundColor : props.dorl ==='light' ? 'white':'grey'}}></textarea>
     </div>
@@ -91,7 +91,7 @@ const handleOnChange = (event) =>{
 
 <div className='container my-3' style={{ color : props.dorl ==='light' ? 'black':'white',backgroundColor : props.dorl ==='light' ? 'white':'grey'}}> 
         <h2>Statistics</h2> 
-        {text.trim().length === 0 ? <p>Words: 0</p> : <p>Words: {text.split(" ").length}</p>}
+        {text.trim().length === 0 ? <p>Words: 0</p> : <p>Words: {text.split(/\s+/).length}</p>}
         <p>Length: {text.length}</p>
      
 </div>

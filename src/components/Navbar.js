@@ -41,10 +41,10 @@ export default function Navbar(props) {
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Color Themes
         </button>
-        <ul className="dropdown-menu">
-            <li><button className="dropdown-item"  onClick={ () => colorthemefunction("#5CB3FF")}>Color 1</button></li>
-            <li><button className="dropdown-item"  onClick={ () => colorthemefunction("#004225")}>Color 2</button></li>
-            <li><button className="dropdown-item"  onClick={() => colorthemefunction("#FFDAB9")}>Color 3</button></li>
+        <ul className="dropdown-menu" style={{backgroundColor: 'lightyellow'}}>
+            <li><button className="dropdown-item" style={{backgroundColor: '#5CB3FF', color: 'white'}} onClick={ () => colorthemefunction("#5CB3FF")}>Color 1</button></li>
+            <li><button className="dropdown-item"  style={{backgroundColor: '#004225', color: 'white'}} onClick={ () => colorthemefunction("#004225")}>Color 2</button></li>
+            <li><button className="dropdown-item"  style={{backgroundColor: '#FFDAB9', color: 'Blue'}} onClick={() => colorthemefunction("#FFDAB9")}>Color 3</button></li>
         </ul>
     </div>
 

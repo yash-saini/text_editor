@@ -20,7 +20,6 @@ function App() {
   
   const [alert,stagealert] = useState(null)
 
-  const [multiplecol,changemulcolor] = useState("#1F45FC")
 
   const darkmode = () =>{
     if (dorl==='light')
@@ -44,8 +43,9 @@ function App() {
 }
 
 const changingthemes = (color_code)=>{
-changemulcolor(color_code)
-document.body.style.backgroundColor=multiplecol
+
+document.body.style.backgroundColor = '';
+document.body.style.backgroundColor=color_code
  }
 
 /* const changingAlertStates = (alertmsg,type)=>{
