@@ -6,6 +6,9 @@ import Txtform from './components/Txtform';
 import { useState } from 'react'
 import AlertWindow from './components/AlertWindow';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
 
 function App() {
 
@@ -16,6 +19,8 @@ function App() {
   //const [{alrt,type},stagealert] = useState({alrt: "",type :null })
   
   const [alert,stagealert] = useState(null)
+
+  const [multiplecol,changemulcolor] = useState("#1F45FC")
 
   const darkmode = () =>{
     if (dorl==='light')
@@ -38,6 +43,11 @@ function App() {
     
 }
 
+const changingthemes = (color_code)=>{
+changemulcolor(color_code)
+document.body.style.backgroundColor=multiplecol
+ }
+
 /* const changingAlertStates = (alertmsg,type)=>{
  stagealert ({alrt : alertmsg,type :type})
 } */
@@ -52,14 +62,26 @@ const changingAlertStates = (msg,type)=>{
 
 
   return (
-    <>
-    <Navbar title="TextChanger" about="About" darkmode={darkmode} dorl={dorl} buttonlabel={buttonlabel}/>
+    <Router>
+   
+    <Navbar title="TextChanger" about="About" darkmode={darkmode} dorl={dorl} buttonlabel={buttonlabel} changingthemes={changingthemes} changingAlertStates={changingAlertStates}/>
     {/* <About></About> */}
     <AlertWindow alert={alert} ></AlertWindow>
-    <div className= "container">
-    <Txtform heading="Your text goes here" darkmode={darkmode} dorl={dorl} buttonlabel={buttonlabel} changingAlertStates={changingAlertStates} />
+
+    <Routes>
+        <Route exact path="/about" element={<About />} />
+    </Routes>
+   
+    <div className='container'>
+    <Routes>
+   
+    <Route exact path="/" element={<Txtform heading="Your text goes here" darkmode={darkmode} dorl={dorl} buttonlabel={buttonlabel} changingAlertStates={changingAlertStates} />} />
+  
+   
+    </Routes>
     </div>
-    </>
+
+    </Router>
    
   );
 }

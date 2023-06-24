@@ -1,25 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar(props) {
+
+  const colorthemefunction = (color_code)=>{
+    props.changingthemes(color_code)
+    props.changingAlertStates("Changed Theme","success")
+   }
+  
 
   return (
     
     <nav className={`navbar navbar-expand-lg navbar-${props.dorl} bg-${props.dorl}`}>
   <div className="container-fluid" >
-    <a className="navbar-brand mb-0.5" href="/">{props.title}</a>
+    <Link className="navbar-brand mb-0.5" to="/">{props.title}</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
+          <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">{props.about}</a>
+          <Link className="nav-link" to="/about">{props.about}</Link>
         </li>
       </ul>
   
@@ -29,6 +36,18 @@ export default function Navbar(props) {
         <button className="btn btn-outline-primary" type="submit">Search</button>
       </form>
        */}
+
+    <div className="dropdown mx-5">
+        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Color Themes
+        </button>
+        <ul className="dropdown-menu">
+            <li><button className="dropdown-item"  onClick={ () => colorthemefunction("#5CB3FF")}>Color 1</button></li>
+            <li><button className="dropdown-item"  onClick={ () => colorthemefunction("#004225")}>Color 2</button></li>
+            <li><button className="dropdown-item"  onClick={() => colorthemefunction("#FFDAB9")}>Color 3</button></li>
+        </ul>
+    </div>
+
        <div className="form-check form-switch" >
             <input className="form-check-input" type="checkbox" onClick={props.darkmode} role="switch" id="flexSwitchCheckDefault"/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color : props.dorl ==='light' ? 'black':'white'}}>{props.buttonlabel}</label>
